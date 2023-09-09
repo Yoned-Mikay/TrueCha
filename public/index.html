@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js"></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+    />
+    <title>McCoy’s Chat Room Pro</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="text/javascript" src="./script.js"></script>
+  </head>
+  <body class="intro connecting">
+    <div id="body-container">
+      <div id="intro-area">
+        <h1>Hello and Welcome!</h1>
+        <p>
+          This is a safe and anonymous space for you to meet with people from
+          all over the world.
+        </p>
+        <p>
+          Double click your own messages to unsend them and double click
+          others&rsquo; messsages to report them.
+        </p>
+        <p>Please be nice and don&rsquo;t spam.</p>
+        <form id="intro-form">
+          <input type="submit" value="Continue" />
+        </form>
+      </div>
+
+      <div id="setup-area">
+        <h2>Please pick a username:</h2>
+        <form id="setup-form">
+          <input
+            enterkeyhint="go"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Username"
+            maxlength="40"
+            required
+          />
+          <input type="submit" value="Confirm" />
+        </form>
+        <p>- or -</p>
+        <p>
+          <span tabindex="0" id="generate-random">Generate a Random One</span>
+        </p>
+      </div>
+    </div>
+
+    <div id="user-header-area">
+      <span id="connecting-prompt">Connecting to Server…</span>
+      <span tabindex="0">
+        <span id="show-all-user">Show Users &rsaquo;</span>
+        <span id="back-to-chat">Back to Chat &rsaquo;</span>
+      </span>
+    </div>
+
+    <div id="message-area">
+      <div id="messages"></div>
+      <div id="new-message-label">
+        <span tabindex="0" id="new-message-text">No Unread Messages</span>
+      </div>
+    </div>
+    <div id="user-area">
+      <div id="users">
+        <h3>Connecting to Server…</h3>
+      </div>
+    </div>
+
+    <form id="send-form">
+      <button type="button" id="start-capture"><span>+</span></button>
+      <input
+        enterkeyhint="send"
+        type="text"
+        id="message"
+        name="message"
+        placeholder="Message"
+        required
+      />
+      <input type="submit" value="Send" />
+    </form>
+
+    <div id="capture-area">
+      <div class="capture-container">
+        <video id="capture-video" playsinline muted></video>
+      </div>
+      <form id="capture-form">
+        <span tabindex="0" id="stop-capture">&lsaquo; Back</span>
+        <select name="capture-camera" id="select-camera" disabled>
+          <option value="default">- Please select a camera -</option>
+        </select>
+        <input type="submit" value="Capture" id="capture-button" disabled />
+      </form>
+    </div>
+
+    <div id="transmit-area">
+      <div class="capture-container">
+        <img id="capture-image" />
+      </div>
+      <form id="transmit-form">
+        <span tabindex="0" id="retake">&lsaquo; Retake</span>
+        <input type="submit" value="Send" id="transmit-button" />
+      </form>
+    </div>
+
+    <div id="fullscreen-area">
+      <span tabindex="0" id="cancel-fullscreen">&times;</span>
+      <img title="Click to Hide" id="fullscreen-image" />
+    </div>
+
+    <canvas id="capture-canvas"></canvas>
+  </body>
+</html>
